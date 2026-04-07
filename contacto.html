@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Michis & Dulzura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagenes/MICHIS-removebg-preview.png" alt="Michis & Dulzura Logo" class="brand-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#fundacion">Nuestra Misión</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-icon-custom position-relative" id="btnFavorites">
+                            <i class="fas fa-heart"></i>
+                            <span class="badge badge-fav" id="favCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="height: 76px;"></div>
+
+    <section class="py-5 flex-grow-1">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="contact-card bg-white p-5 h-100">
+                        <h2 class="fw-bold mb-3" style="color: var(--color-purple);">Contacta con Nosotros</h2>
+                        <p class="text-muted mb-4">¿Tienes preguntas sobre los pasteles, deseas un diseño personalizado
+                            o quieres ayudar a un michi? ¡Escríbenos!</p>
+
+                        <form id="contactForm" novalidate>
+                            <div class="form-group mb-4">
+                                <label class="fw-semibold mb-2">Nombre Completo</label>
+                                <input type="text" id="contactName" class="form-control" required
+                                    placeholder="Tu nombre">
+                                <div class="error-msg" id="nameError"
+                                    style="color: #ff4d4f; font-size: 0.85rem; display: none; margin-top: 5px;"></div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="fw-semibold mb-2">Correo Electrónico</label>
+                                <input type="email" id="contactEmail" class="form-control" required
+                                    placeholder="tuemail@ejemplo.com">
+                                <div class="error-msg" id="emailError"
+                                    style="color: #ff4d4f; font-size: 0.85rem; display: none; margin-top: 5px;"></div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="fw-semibold mb-2">Mensaje</label>
+                                <textarea id="contactMessage" class="form-control" rows="5" required
+                                    placeholder="¿En qué te podemos ayudar?"></textarea>
+                                <div class="error-msg" id="messageError"
+                                    style="color: #ff4d4f; font-size: 0.85rem; display: none; margin-top: 5px;"></div>
+                            </div>
+                            <div class="success-msg text-success text-center mb-3 fw-medium" id="successMessage"
+                                style="display: none;">
+                                ¡Mensaje enviado con éxito! Nos contactaremos pronto.
+                            </div>
+                            <button type="submit" class="btn-primary-custom w-100 py-3 mt-2">Enviar Mensaje <i
+                                    class="fas fa-paper-plane ms-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info-card p-5 h-100 border-0 shadow-lg position-relative overflow-hidden"
+                        style="background: linear-gradient(135deg, var(--color-cyan) 0%, rgba(183, 166, 246, 0.3) 100%); border-radius: 20px;">
+
+                        <!-- Glow blob -->
+                        <div
+                            style="position:absolute; width:200px; height:200px; background:var(--color-pink); filter:blur(50px); opacity:0.3; top:-50px; right:-50px; border-radius:50%; z-index:0;">
+                        </div>
+
+                        <h3 class="fw-bold mb-4 position-relative z-1"
+                            style="color: var(--color-purple); font-size:2.2rem;">Atención Humana & Felina</h3>
+                        <p class="d-flex align-items-center fw-semibold fs-5 mb-3 position-relative z-1"><i
+                                class="fab fa-whatsapp fs-3 me-3" style="color:var(--color-purple);"></i> +57 (300)
+                            123-4567</p>
+                        <p class="d-flex align-items-center fw-semibold fs-5 position-relative z-1"><i
+                                class="far fa-envelope fs-3 me-3" style="color:var(--color-purple);"></i>
+                            hola@michisydulzura.com</p>
+
+                        <div
+                            class="mt-5 rounded-4 overflow-hidden shadow-lg position-relative z-1 border border-white border-4 bg-white p-2">
+                            <img src="imagenes/contactanos.jpg" alt="Contacto Gatuno"
+                                class="img-fluid w-100 rounded-3" style="object-fit: cover; height: 320px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom mt-auto">
+        <div class="container pb-4">
+            <div class="row gy-4">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <img src="imagenes/MICHIS-removebg-preview.png" alt="Michis & Dulzura Logo" width="120"
+                        class="mb-3" style="filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.2));">
+                    <p>Apoya a los michis mientras disfrutas de nuestros productos más dulces y creativos.</p>
+                    <div class="social-icons d-flex justify-content-center justify-content-lg-start gap-3 mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center text-md-start">
+                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Inicio</a></li>
+                        <li class="mb-2"><a href="productos.html">Productos</a></li>
+                        <li class="mb-2"><a href="index.html#fundacion">Nuestra Misión</a></li>
+                        <li class="mb-2"><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center text-md-start">
+                    <h5 class="fw-bold mb-3">Atención al Cliente</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Preguntas Frecuentes</a></li>
+                        <li class="mb-2"><a href="#">Envíos</a></li>
+                        <li class="mb-2"><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p class="mb-0 small">&copy; 2024 Michis & Dulzura. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Favoritos Modal -->
+    <div class="modal-overlay" id="favoritesModal">
+        <div class="custom-modal-content">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                <h4 class="mb-0 fw-bold" style="color:var(--color-pink)"><i class="fas fa-heart"></i> Tus Favoritos</h4>
+                <button class="btn-close" id="closeFavoritesModal"></button>
+            </div>
+            <div id="favorites-list" class="my-3">
+                <p class="text-center text-muted" id="empty-fav-msg">Aún no tienes productos favoritos.</p>
+            </div>
+            <div class="d-flex justify-content-end gap-2 pt-3 border-top">
+                <button class="btn btn-light border" id="closeFavoritesBtn">Cerrar</button>
+                <button class="btn btn-danger text-white" id="clearFavsBtn" style="display:none;">Vaciar lista</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
