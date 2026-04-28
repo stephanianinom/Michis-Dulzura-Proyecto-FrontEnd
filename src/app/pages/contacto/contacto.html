@@ -1,0 +1,87 @@
+<section class="py-5 flex-grow-1" style="margin-top: 50px;">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="contact-card bg-white p-5 h-100">
+                    <h2 class="fw-bold mb-3" style="color: var(--color-purple);">Contacta con Nosotros</h2>
+                    <p class="text-muted mb-4">¿Tienes preguntas sobre los pasteles, deseas un diseño personalizado
+                        o quieres ayudar a un michi? ¡Escríbenos!</p>
+
+                    <div *ngIf="submitted" class="success-msg text-success text-center mb-3 fw-medium"
+                        id="successMessage">
+                        ¡Mensaje enviado con éxito! Nos contactaremos pronto.
+                    </div>
+
+                    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                        <div class="form-group mb-4">
+                            <label class="fw-semibold mb-2">Nombre Completo</label>
+                            <input type="text" class="form-control" name="nombre" [(ngModel)]="contacto.nombre"
+                                #nombre="ngModel" required minlength="3" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+                                placeholder="Tu nombre">
+                            <div *ngIf="nombre.invalid && (contactForm.submitted || nombre.dirty || nombre.touched)"
+                                class="error-msg" style="color: #ff4d4f; font-size: 0.85rem; margin-top: 5px;">
+                                <div *ngIf="nombre.errors?.['required']">El nombre es requerido.</div>
+                                <div *ngIf="nombre.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.
+                                </div>
+                                <div *ngIf="nombre.errors?.['pattern']">El nombre solo debe contener letras.</div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="fw-semibold mb-2">Correo Electrónico</label>
+                            <input type="email" class="form-control" name="email" [(ngModel)]="contacto.email"
+                                #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                                placeholder="tuemail@ejemplo.com">
+                            <div *ngIf="email.invalid && (contactForm.submitted || email.dirty || email.touched)"
+                                class="error-msg" style="color: #ff4d4f; font-size: 0.85rem; margin-top: 5px;">
+                                <div *ngIf="email.errors?.['required']">El correo es requerido.</div>
+                                <div *ngIf="email.errors?.['pattern']">Por favor, introduce un correo electrónico
+                                    válido.</div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="fw-semibold mb-2">Mensaje</label>
+                            <textarea class="form-control" rows="5" name="mensaje" [(ngModel)]="contacto.mensaje"
+                                #mensaje="ngModel" required minlength="10"
+                                placeholder="¿En qué te podemos ayudar?"></textarea>
+                            <div *ngIf="mensaje.invalid && (contactForm.submitted || mensaje.dirty || mensaje.touched)"
+                                class="error-msg" style="color: #ff4d4f; font-size: 0.85rem; margin-top: 5px;">
+                                <div *ngIf="mensaje.errors?.['required']">El mensaje es requerido.</div>
+                                <div *ngIf="mensaje.errors?.['minlength']">El mensaje debe tener al menos 10 caracteres.
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary-custom w-100 py-3 mt-2">
+                            Enviar Mensaje <i class="fas fa-paper-plane ms-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-info-card p-5 h-100 border-0 shadow-lg position-relative overflow-hidden"
+                    style="background: linear-gradient(135deg, var(--color-cyan) 0%, rgba(183, 166, 246, 0.3) 100%); border-radius: 20px;">
+
+                    <!-- Glow blob -->
+                    <div
+                        style="position:absolute; width:200px; height:200px; background:var(--color-pink); filter:blur(50px); opacity:0.3; top:-50px; right:-50px; border-radius:50%; z-index:0;">
+                    </div>
+
+                    <h3 class="fw-bold mb-4 position-relative z-1"
+                        style="color: var(--color-purple); font-size:2.2rem;">Atención Humana & Felina</h3>
+                    <p class="d-flex align-items-center fw-semibold fs-5 mb-3 position-relative z-1"><i
+                            class="fab fa-whatsapp fs-3 me-3" style="color:var(--color-purple);"></i> +57 (300)
+                        123-4567</p>
+                    <p class="d-flex align-items-center fw-semibold fs-5 position-relative z-1"><i
+                            class="far fa-envelope fs-3 me-3" style="color:var(--color-purple);"></i>
+                        hola@michisydulzura.com</p>
+
+                    <div
+                        class="mt-5 rounded-4 overflow-hidden shadow-lg position-relative z-1 border border-white border-4 bg-white p-2">
+                        <img src="assets/imagenes/contactanos.jpg" alt="Contacto Gatuno"
+                            class="img-fluid w-100 rounded-3" style="object-fit: cover; height: 320px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

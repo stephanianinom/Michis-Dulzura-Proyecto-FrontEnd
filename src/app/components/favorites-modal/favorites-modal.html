@@ -1,0 +1,29 @@
+<div class="modal-overlay" [class.show]="isModalOpen$ | async">
+    <div class="custom-modal-content">
+        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h4 class="mb-0 fw-bold" style="color:var(--color-pink)"><i class="fas fa-heart"></i> Tus Favoritos</h4>
+            <button class="btn-close" (click)="close()"></button>
+        </div>
+        <div id="favorites-list" class="my-3">
+            <ng-container *ngIf="(favoriteProducts$ | async) as favs">
+                <p class="text-center text-muted" *ngIf="favs.length === 0">Aún no tienes productos favoritos.</p>
+                <div class="fav-item-row" *ngFor="let product of favs" style="display:flex; align-items:center; margin-bottom: 15px;">
+                    <img [src]="product.image" [alt]="product.title" style="width:50px; height:50px; object-fit:cover; border-radius:8px; margin-right:15px;">
+                    <div class="info" style="flex-grow:1;">
+                        <p style="font-weight:600; font-size:14px; margin-bottom:2px">{{product.title}}</p>
+                        <p style="color:var(--color-pink); font-size:14px; margin-bottom:0; font-weight:bold;">{{product.price}}</p>
+                    </div>
+                    <button class="btn-remove-fav" (click)="removeFav(product.id)" style="background:none; border:none; color:#ff4d4f; cursor:pointer;">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </ng-container>
+        </div>
+        <div class="d-flex justify-content-end gap-2 pt-3 border-top">
+            <button class="btn btn-light border" (click)="close()">Cerrar</button>
+            <button class="btn btn-danger text-white" 
+                    *ngIf="(favoriteProducts$ | async)?.length" 
+                    (click)="clearFavs()">Vaciar lista</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg custom-navbar fixed-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/">
+            <img src="assets/imagenes/MICHIS-removebg-preview.png" alt="Michis & Dulzura Logo" class="brand-img">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-3">
+                <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/productos" routerLinkActive="active">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/" fragment="fundacion">Nuestra Misión</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
+                <li class="nav-item ms-lg-3">
+                    <button class="btn btn-icon-custom position-relative" (click)="favoritesService.openModal()">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge badge-fav">{{ (favoritesService.favorites$ | async)?.length || 0 }}</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="height: 76px;"></div>

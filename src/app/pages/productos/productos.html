@@ -1,0 +1,32 @@
+<section class="page-title-section py-5">
+    <div class="container py-4">
+        <h1 class="fw-bold">Nuestros Productos</h1>
+        <p class="lead mb-0">Postres y obras que apoyan una causa noble.</p>
+    </div>
+</section>
+
+<section class="py-5 mb-5 flex-grow-1">
+    <div class="container">
+        <div class="row g-4" id="products-container">
+            <div class="col-sm-6 col-lg-3" *ngFor="let product of products">
+                <div class="dynamic-card d-flex flex-column h-100 bg-white">
+                    <a [routerLink]="['/detalle', product.id]" class="card-img-wrapper text-decoration-none bg-light d-flex align-items-center justify-content-center">
+                        <img [src]="product.image" [alt]="product.title">
+                    </a>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <a [routerLink]="['/detalle', product.id]" class="text-decoration-none"><h3 class="card-title-custom mb-2">{{product.title}}</h3></a>
+                        <p class="card-price-custom mb-3">{{product.price}}</p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <a [routerLink]="['/detalle', product.id]" class="btn btn-light border flex-grow-1 text-decoration-none fw-medium text-dark d-flex align-items-center justify-content-center">Detalles</a>
+                            <button class="btn btn-icon-custom shadow-none border btn-fav-toggle" 
+                                    [class.active]="isFav(product.id)" 
+                                    (click)="toggleFavorite(product.id)">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

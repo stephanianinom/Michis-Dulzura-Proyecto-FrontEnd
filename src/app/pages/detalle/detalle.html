@@ -1,0 +1,35 @@
+<section class="py-5 mb-5 flex-grow-1" style="margin-top: 50px;">
+    <div class="container" id="detail-container">
+        <div class="detail-layout row g-5 align-items-center" *ngIf="product">
+            <div class="col-lg-6">
+                <div class="card-img-wrapper shadow-lg" style="border-radius: 24px;">
+                    <img [src]="product.image" [alt]="product.title" class="img-fluid w-100" style="object-fit:cover;">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <span class="badge w-auto rounded-pill bg-light pb-2 pt-2 px-3 mb-3 border text-uppercase" style="color: var(--color-purple); font-size:12px; letter-spacing:1px;">Producto Especial</span>
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--color-purple);">{{product.title}}</h1>
+                <p class="display-6 fw-bold mb-4" style="color: var(--color-pink);">{{product.price}}</p>
+                
+                <p class="fs-5 text-muted mb-5 lh-lg">
+                    Este hermoso producto está diseñado especialmente para los amantes de los gatos. Cada detalle ha sido cuidado para ofrecer la mejor calidad, y recuerda que un porcentaje de tu compra irá directamente a nuestra fundación aliada para ayudar a michis en situación de calle.
+                </p>
+                
+                <div class="d-flex gap-3 flex-wrap align-items-stretch">
+                    <a routerLink="/contacto" class="btn-primary-custom flex-grow-1 text-decoration-none d-flex align-items-center justify-content-center fs-5" style="padding: 12px 24px;">
+                        <i class="fab fa-whatsapp me-2 fs-4"></i> Contactar Compra
+                    </a>
+                    <button class="btn d-flex align-items-center justify-content-center fs-5 shadow-sm border" 
+                            [class.active]="isFav()" 
+                            (click)="toggleFavorite()" 
+                            style="border-radius: 50px; padding: 12px 35px; font-weight: 600; transition: all 0.3s ease;"
+                            [style.background]="isFav() ? 'var(--color-pink)' : '#fff'"
+                            [style.color]="isFav() ? 'white' : 'var(--color-pink)'"
+                            [style.border-color]="isFav() ? 'var(--color-pink)' : '#eaebf0'">
+                        <i class="fas fa-heart me-2" [style.color]="isFav() ? 'white' : 'var(--color-pink)'"></i> {{ isFav() ? 'Quitar Fav' : 'Favoritos' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
